@@ -15,7 +15,7 @@ public class GoalDTO {
     private Integer id;
     private String periodicity;
     private Integer value;
-    private UnitSymbolDTO unitSymbolDTO;
+    private UnitSymbolDTO unitSymbol;
     private Date createdAt;
     private Date updatedAt;
 }
