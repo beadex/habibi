@@ -1,5 +1,6 @@
 package phong.tran1.habibi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -9,6 +10,7 @@ import phong.tran1.habibi.enums.habits.TimeOfDay;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "habits")
 @Getter
@@ -26,6 +28,9 @@ public class Habit {
     @Column(name = "accent_color")
     private String accentColor = "#2AA8D0";
 
+    @OneToMany(mappedBy = "habit")
+    private List<HabitGoal> goals;
+
     private String regularly;
 
     @Column(name = "time_of_day")
@@ -34,8 +39,9 @@ public class Habit {
     @Column(name = "habit_type")
     private HabitType habitType;
 
-    @Column(name = "habit_folder_id")
-    private Integer habitFolderId = null;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "habit_folder_id")
+    private HabitFolder habitFolder;
 
     private Double priority;
 

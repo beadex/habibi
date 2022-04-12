@@ -7,6 +7,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "habit_folders")
 @Getter
@@ -21,6 +22,9 @@ public class HabitFolder {
     private String priority;
 
     private String color;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "habitFolder")
+    private List<Habit> habits;
 
     @CreationTimestamp
     @Column(name = "created_at")

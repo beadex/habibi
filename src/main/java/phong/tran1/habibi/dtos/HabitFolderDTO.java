@@ -12,19 +12,11 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class HabitDTO {
+public class HabitFolderDTO {
     private Integer id;
     private String name;
-    private Boolean isArchived;
-    private String accentColor;
-    private List<GoalDTO> goals;
-    private String regularly;
-    private String timeOfDay;
-    private String habitType;
-    private HabitFolderDTO habitFolder;
-    private Double priority;
-    private String priorityByFolder;
-    private Date startDate;
+    private String priority;
+    private String color;
     private Date createdAt;
     private Date updatedAt;
 }
